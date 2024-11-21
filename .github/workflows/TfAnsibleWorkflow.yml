@@ -37,6 +37,7 @@ jobs:
         run: sudo apt-get install -y ansible
 
       - name: Generiere Ansible Inventory
+        working-directory: ./terraform
         run: |
           echo "[webserver]" > ../ansible/ec2Maschinen.ini
           terraform output -json >> meineOutputs.json
