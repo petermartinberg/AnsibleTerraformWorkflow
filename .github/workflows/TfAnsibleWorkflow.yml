@@ -12,7 +12,7 @@ jobs:
       
       - name: Send Slack Notification
         run: |
-            curl -X POST --data-urlencode 'payload={"channel": "#webhookunterricht", "username": "suheibsbot", "text": "Hallo aus suheibsTerminal.", "icon_emoji": ":ghost:"}' https://hooks.slack.com/services/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
+            curl -X POST --data-urlencode 'payload={"channel": "#webhookunterricht", "username": "suheibsbot", "text": "Hallo aus suheibsTerminal.", "icon_emoji": ":ghost:"}' https://hooks.slack.com/services/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
 
 
       - name: Checkout repo
