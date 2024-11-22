@@ -16,7 +16,7 @@ jobs:
          webhook: ${{secrets.SLACK_WEBHOOK_URL}}
          webhook-type: webhook-trigger
          payload: |
-            text: "Github Actions mit Terraform und Ansible"
+            text: "Pipeline wurde soeben gestartet"
 
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -61,6 +61,14 @@ jobs:
       - name: Ansible Playbook ausführen
         working-directory: ./ansible
         run: ansible-playbook -i ec2Maschinen.ini meinPlaybook.yml
+
+      - name: Send custom event details to a Slack workflow
+        uses: slackapi/slack-github-action@v2.0.0
+        with:
+          webhook: ${{secrets.SLACK_WEBHOOK_URL}}
+          webhook-type: webhook-trigger
+          payload: |
+            text: "Pipeline wurde beendet"
 
   destroy:
     name: Terraform destroy
