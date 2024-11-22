@@ -9,6 +9,14 @@ jobs:
     if: github.event_name == 'push'
 
     steps:
+      
+      - name: Send Slack Notification
+        run: |
+          curl -X POST \
+          -H 'Content-type: application/json' \
+          --data '{"channel": "#webhookunterricht", "username": "suheibSuperUsername", "text": "Hello from GitHub Actions!"}' \
+          https://hooks.slack.com/services/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
+
       - name: Checkout repo
         uses: actions/checkout@v3
 
